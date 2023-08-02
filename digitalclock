@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Clock</title>
+<style>
+body
+{
+background: #aeaeae;
+font-family: Arial, Helvetica, sans-serif;
+}
+.container
+{
+border: 2px solid #fff;
+width: 50%;
+text-align: center;
+margin: 15px auto;
+}
+</style>
+<script>
+function displayDateAndTime()
+{
+let curDateObj = new Date();
+let curHours = curDateObj.getHours();
+let curMin = curDateObj.getMinutes();
+let curSec = curDateObj.getSeconds();
+let curYear = curDateObj.getFullYear();
+let curMon = curDateObj.getMonth() + 1;
+let curDate = curDateObj.getDate();
+document.getElementById('hours').innerText = curHours;
+document.getElementById('min').innerText = curMin;
+document.getElementById('sec').innerText = curSec;
+document.getElementById('date').innerText = curDate;
+document.getElementById('month').innerText = curMon;
+document.getElementById('year').innerText = curYear;
+let curDay = curDateObj.getDay();
+switch(curDay)
+{
+case 0: curDay = "SUNDAY"
+break;
+case 1: curDay = "MONDAY"
+break;
+case 2: curDay = "TUESDAY"
+break;
+case 3: curDay = "WEDNESDAY"
+break;
+case 4: curDay = "THURESDAY"
+break;
+case 5: curDay = "FRIDAY"
+break;
+case 6: curDay = "SATURDAY"
+break;
+}
+document.getElementById('day').innerText = curDay;
+}
+</script>
+</head>
+<body onload="setInterval(displayDateAndTime,1000)">
+<h1 style="text-align: center;">Digital clock</h1>
+<div class="container">
+<h1>
+<span id="hours">00</span> :
+<span id="min">00</span> :
+<span id="sec">00</span>
+</h1>
+</div>
+<div class="container">
+<h1>
+<span id="date">00</span> :
+<span id="month">00</span> :
+<span id="year">0000</span>
+</h1>
+<h2 id="day">some day</h2>
+</div>
+</body>
+</html>
